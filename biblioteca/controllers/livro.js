@@ -1,18 +1,23 @@
-const aluguel_controller = require("./aluguel.js")
 const livros = [];
 let nextId = 1;
 
 const model = (livro, id = nextId++) => {
   if (
-    livro.nome != "" &&
-    livro.nome != undefined &&
-    livro.aluguel_id != undefined &&
-    aluguel_controller.show(livro.aluguel_id)
+    livro.titulo != "" &&
+    livro.titulo != undefined &&
+    livro.autor != "" &&
+    livro.autor != undefined &&
+    livro.ano != "" &&
+    livro.ano != undefined &&
+    livro.genero != "" &&
+    livro.genero != undefined
   ) {
     return {
       id,
-      nome: livro.nome,
-      aluguel_id: parseInt(livro.aluguel_id)
+      titulo: livro.titulo,
+      autor: livro.autor,
+      ano: livro.ano,
+      genero: livro.genero
      } 
   }
 }  

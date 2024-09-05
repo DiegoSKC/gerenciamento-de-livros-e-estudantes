@@ -1,22 +1,26 @@
+const livro_controller = require("./livro.js")
 const estudante_controller = require("./estudante.js")
 const alugueis = [];
 let nextId = 1;
 
 const model = (aluguel, id = nextId++) => {
   if (
-    aluguel.nome != "" &&
-    aluguel.nome != undefined &&
-    aluguel.categoria != "" && 
-    aluguel.categoria != undefined &&
+    aluguel.dataAluguel != "" &&
+    aluguel.dataAluguel != undefined &&
+    aluguel.dataDevolucao != "" && 
+    aluguel.dataDevolucao != undefined &&
+    aluguel.livro_id != undefined &&
+    livro_controller.show(aluguel.livro_id) &&
     aluguel.estudante_id != undefined &&
     estudante_controller.show(aluguel.estudante_id)
   ) {
     return {
       id,
-      nome: aluguel.nome,
-      categoria: aluguel.categoria,
+      dataAluguel: aluguel.dataAluguel,
+      dataDevolucao: aluguel.dataDevolucao,
+      livro_id: parseInt(aluguel.livro_id),
       estudante_id: parseInt(aluguel.estudante_id)
-     } 
+    } 
   }
 }  
 const store = (body) => {

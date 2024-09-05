@@ -4,7 +4,7 @@ const estudante_controller = require("./controllers/estudante.js")
 const livro_controller = require("./controllers/livro.js")
 const app = express()
 const port = 5000
-app.use(express.json)
+app.use(express.json())
 
 //GERENCIAMENTO DE ALUGUEL
 app.post("/aluguel", (req, res) => {
